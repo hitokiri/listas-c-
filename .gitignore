@@ -27,6 +27,6 @@
 *.out
 *.app
 
-CMakeLists.txt
+
 *.bin
 .idea
