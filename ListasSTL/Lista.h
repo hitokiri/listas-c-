@@ -98,7 +98,7 @@ public:
     }
 
     void borrar(char *nombre, char *apellidos){
-
+       Trabaja.remove( *Buscar(nombre,apellidos));
 
     }
 

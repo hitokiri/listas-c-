@@ -56,7 +56,10 @@ int main() {
     trabajador1 = new Trabajador(nombref, apellidof, fecha, 1000);
     lst.insertar(trabajador1,lst.Buscar(nombre1,apellido1));
     lst.Mostrar();
-
+    cout<<endl;
+    cout<<"Lista mas borrado"<<endl;
+    lst.borrar(nombre1,apellido1);
+    lst.Mostrar();
     int op;
 //
 //    do{
