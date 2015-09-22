@@ -38,39 +38,51 @@ public:
         Trabaja.push_back(t);
     }
 
-    void insertar(trabajador t, pnodo pos ){
-      if (Trabaja.empty()){
-          Trabaja.push_back(t);
-      }else if(!pos){
-          Trabaja.push_back(t);
-      }else{
-
-      }
+    void insertar(trabajador t, list<trabajador >::iterator pos ){
+        Trabaja.insert(pos,t);
     }
 
     void Mostrar(){
         list<trabajador >::iterator i;
-        trabajador reccorer;
         for(i=Trabaja.begin(); i != Trabaja.end(); ++i){
-            reccorer = *i;
-            cout << reccorer->nombre << " ";
+            cout << (*i)->nombre << " ";
         }
     }
-    //encargada de mostrar lo buscado con search
-    void Buscar(char *nombre, char *apellidos){
+
+    void Mostrar(list<trabajador >::iterator trabajadorb){
+        if (*trabajadorb){
+            cout<<"nombre: " << (*trabajadorb)->nombre<< endl;
+            cout<<"apellido: " << (*trabajadorb)->apellidos<< endl;
+        }
+        else{
+            cout<<"No se pudo mostrar ninguna informacion";
+        }
 
     }
+    //metodo buscar prueba con regresado de tipo trabajador
+//    trabajador Buscar(char *nombre, char *apellidos){
+//        list<trabajador >::iterator i;
+//        trabajador trabajadorb = NULL;
+//        for(i=Trabaja.begin(); i != Trabaja.end(); ++i){
+//            if((*i)->nombre == nombre && (*i)->apellidos == apellidos ){
+//                return *i;
+//            }
+//        }
+//        return trabajadorb;
+//    }
 
-    pnodo search(char *nombre, char *apellidos){
-
+    //metodo buscar master
+    list<trabajador >::iterator Buscar(char *nombre, char *apellidos){
+        list<trabajador >::iterator i;
+        trabajador trabajadorb = NULL;
+        for(i=Trabaja.begin(); i != Trabaja.end(); ++i){
+            if((*i)->nombre == nombre && (*i)->apellidos == apellidos ){
+                return i;
+            }
+        }
     }
 
-
-
-    void delet(char *nombre, char *apellidos){
-
-
-
+    void borrar(char *nombre, char *apellidos){
 
 
     }

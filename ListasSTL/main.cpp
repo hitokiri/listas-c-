@@ -37,6 +37,8 @@ int main() {
     trabajador trabajador1;
     fecha_ fecha;
     fecha = new Fecha(20,02,2015);
+    char* nombref = "Edgar";
+    char* apellidof = "Joaquin";
     char* nombre = "hiko";
     char* apellido = "hitokiri";
     trabajador1 = new Trabajador(nombre, apellido, fecha, 1000);
@@ -45,6 +47,14 @@ int main() {
     char* apellido1 = "ceron";
     trabajador1 = new Trabajador(nombre1, apellido1, fecha, 1000);
     lst.insertar(trabajador1);
+    lst.Mostrar();
+    cout<<endl;
+
+    lst.Mostrar(lst.Buscar(nombre,apellido));
+    cout<<endl;
+
+    trabajador1 = new Trabajador(nombref, apellidof, fecha, 1000);
+    lst.insertar(trabajador1,lst.Buscar(nombre1,apellido1));
     lst.Mostrar();
 
     int op;
