@@ -11,7 +11,11 @@ using namespace std;
 
 class Lista {
 private:
-   list<trabajador > Trabaja;
+    list<trabajador > Trabaja;
+    //para poder tener acceso a el ultimo miembro de la lista
+    list<::Trabajador *>::iterator ultimo (){
+       return  Trabaja.end();
+    }
 public:
 
 
@@ -39,7 +43,12 @@ public:
     }
 
     void insertar(trabajador t, list<trabajador >::iterator pos ){
-        Trabaja.insert(pos,t);
+        if(pos != Trabaja.end()){
+            Trabaja.insert(pos,t);
+        } else{
+            cout<<"no se pudo agregar el registro porque \n no se pudo encontrar la posicion proporcionada"<<endl;
+        }
+
     }
 
     void Mostrar(){
@@ -50,13 +59,15 @@ public:
     }
 
     void Mostrar(list<trabajador >::iterator trabajadorb){
-
-        if ((trabajadorb) != Trabaja.end()){
+        //compara si el iterador enviado llego al final NULL
+        //ya que si es asi se entiende que no encontro nada
+        if (trabajadorb != ultimo()){
+            //se utiliza el () para hacer un overload y poder tener acceso
             cout<<"nombre: " << (*trabajadorb)->nombre<< endl;
             cout<<"apellido: " << (*trabajadorb)->apellidos<< endl;
         }
         else{
-            cout<<"No se pudo mostrar ninguna informacion";
+            cout<<"No se pudo mostrar ninguna informacion"<<endl;
         }
 
 
