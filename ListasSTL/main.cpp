@@ -50,7 +50,7 @@ int main() {
     lst.Mostrar();
     cout<<endl;
 
-    lst.Mostrar(lst.Buscar(nombre,apellido));
+    lst.Mostrar(lst.Buscar(nombre1,apellido));
     cout<<endl;
 
     trabajador1 = new Trabajador(nombref, apellidof, fecha, 1000);

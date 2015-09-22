@@ -50,13 +50,16 @@ public:
     }
 
     void Mostrar(list<trabajador >::iterator trabajadorb){
-        if (*trabajadorb){
+
+        if ((trabajadorb) != Trabaja.end()){
             cout<<"nombre: " << (*trabajadorb)->nombre<< endl;
             cout<<"apellido: " << (*trabajadorb)->apellidos<< endl;
         }
         else{
             cout<<"No se pudo mostrar ninguna informacion";
         }
+
+
 
     }
     //metodo buscar prueba con regresado de tipo trabajador
@@ -80,6 +83,7 @@ public:
                 return i;
             }
         }
+        return i;
     }
 
     void borrar(char *nombre, char *apellidos){
