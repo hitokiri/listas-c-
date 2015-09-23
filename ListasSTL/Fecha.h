@@ -45,5 +45,6 @@ public:
         cout << this->d << "/" << this->m << "/" <<this->a <<endl;
     }
 
+
 };typedef Fecha* fecha_;
 #endif //LISTASSTL_FECHA_H

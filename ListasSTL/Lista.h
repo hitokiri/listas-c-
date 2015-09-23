@@ -12,10 +12,6 @@ using namespace std;
 class Lista {
 private:
     list<trabajador > Trabaja;
-    //para poder tener acceso a el ultimo miembro de la lista
-    list<::Trabajador *>::iterator ultimo (){
-       return  Trabaja.end();
-    }
 public:
 
 
@@ -54,17 +50,22 @@ public:
     void Mostrar(){
         list<trabajador >::iterator i;
         for(i=Trabaja.begin(); i != Trabaja.end(); ++i){
-            cout << (*i)->nombre << " ";
+            cout << (*i)->nombre << (*i)->apellidos<< (*i)->sueldo;
+            (*i)->fechanac->MostrarFecha();
         }
     }
 
     void Mostrar(list<trabajador >::iterator trabajadorb){
         //compara si el iterador enviado llego al final NULL
         //ya que si es asi se entiende que no encontro nada
-        if (trabajadorb != ultimo()){
+        if (trabajadorb != Trabaja.end()){
             //se utiliza el () para hacer un overload y poder tener acceso
             cout<<"nombre: " << (*trabajadorb)->nombre<< endl;
             cout<<"apellido: " << (*trabajadorb)->apellidos<< endl;
+            cout<<"salario: " << (*trabajadorb)->sueldo<< endl;
+            cout<<"Fecha de nacimiento: "  ;
+            (*trabajadorb)->fechanac->MostrarFecha();
+
         }
         else{
             cout<<"No se pudo mostrar ninguna informacion"<<endl;
@@ -73,35 +74,32 @@ public:
 
 
     }
-    //metodo buscar prueba con regresado de tipo trabajador
-//    trabajador Buscar(char *nombre, char *apellidos){
-//        list<trabajador >::iterator i;
-//        trabajador trabajadorb = NULL;
-//        for(i=Trabaja.begin(); i != Trabaja.end(); ++i){
-//            if((*i)->nombre == nombre && (*i)->apellidos == apellidos ){
-//                return *i;
-//            }
-//        }
-//        return trabajadorb;
-//    }
 
     //metodo buscar master
     list<trabajador >::iterator Buscar(char *nombre, char *apellidos){
         list<trabajador >::iterator i;
-        trabajador trabajadorb = NULL;
         for(i=Trabaja.begin(); i != Trabaja.end(); ++i){
-            if((*i)->nombre == nombre && (*i)->apellidos == apellidos ){
+            if(strcmp(nombre,(*i)->nombre) == 0 && strcmp(apellidos,(*i)->apellidos) == 0 ){
                 return i;
             }
         }
         return i;
     }
 
-    void borrar(char *nombre, char *apellidos){
-       Trabaja.remove( *Buscar(nombre,apellidos));
+    void borrar(list<trabajador >::iterator trabajadorb){
+       if(trabajadorb != ultimo()){
+           Trabaja.remove(*trabajadorb);
+       }else{
+           cout<<"El trabajador ingresado no existe";
+       }
+
 
     }
 
+//para poder tener acceso a el ultimo miembro de la lista
+    list<::Trabajador *>::iterator ultimo (){
+       return  Trabaja.end();
+    }
 };
 
 
