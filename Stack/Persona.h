@@ -51,7 +51,7 @@ public:
 
     }
     friend class Trabajador;
-    friend class Lista;
+    friend class Pila;
 };typedef Persona* persona;
 
 

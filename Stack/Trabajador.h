@@ -48,7 +48,7 @@ public:
 
     }
     friend class Nodo;
-    friend class Lista;
+    friend class Pila;
 };typedef Trabajador* trabajador;
 
 

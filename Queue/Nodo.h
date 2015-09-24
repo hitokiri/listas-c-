@@ -13,7 +13,6 @@ class Nodo{
 
 private:
     trabajador Valor ;
-//    Nodo* Anterior;
     Nodo* Siguiente ;
 
 public:
@@ -22,6 +21,6 @@ public:
         this->Siguiente = siguiente;
     }
 
-    friend class Lista;
+    friend class Cola;
 };typedef Nodo* pnodo;
 #endif //LISTA_NODO_H

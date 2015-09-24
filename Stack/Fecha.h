@@ -21,7 +21,7 @@ public:
         return true;
     }
     void MostrarFecha(){
-        cout << this->d << "/" << this->m << "/" <<this->a <<endl;
+        cout << this->d << "/" << this->m << "/" <<this->a ;
     }
 
 };typedef Fecha* fecha_;
