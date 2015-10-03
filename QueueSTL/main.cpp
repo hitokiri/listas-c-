@@ -1,10 +1,10 @@
 #include <iostream>
-#include "Pila.h"
+#include "Cola.h"
 using namespace std;
 
 int main() {
     pila pl;
-    pl = new Pila;
+    pl = new Cola;
     fecha_ fecha;
     fecha = new Fecha(12,3,2015);
     char* nombre = "hiko";
@@ -19,18 +19,9 @@ int main() {
     char* apellido2 = "london";
     trabajador trabaja2 = new Trabajador(nombre2, apellido2, fecha, 23);
     pl->insertar(trabaja2);
-    pl->Mostrar();
 
-    pl->sacar();
+
     cout<<"Elemento despues de borrado "<<endl;
-
-    pl->Mostrar();
-
-    cout<<endl<<"otro agregado"<<endl;
-    char* nombre3 = "carlos";
-    char* apellido3 = "ramon";
-    trabajador trabaja3 = new Trabajador(nombre3, apellido3, fecha, 23);
-    pl->insertar(trabaja3);
-    pl->Mostrar();
+    pl->sacar();
     return 0;
 }

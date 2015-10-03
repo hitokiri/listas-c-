@@ -17,7 +17,6 @@ private:
 
 public:
      ~Pila() {
-         delete trabaja_stack;
     }
 
     Pila() {
@@ -30,7 +29,8 @@ public:
 
     void sacar(){
         //mostrar el ultimo ingresado que sera el primero en salir
-        trabaja_stack.top();
+        trabajador  trabajador_sal = trabaja_stack.top();
+        cout<<"Nombre : "<<trabajador_sal->nombre <<endl;
         //borrar el mostrado
         trabaja_stack.pop();
     }
