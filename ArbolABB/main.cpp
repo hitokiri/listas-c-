@@ -73,6 +73,6 @@ int main() {
     cout << "Altura de 10 " << ArbolInt.Altura(10) << endl;
     cout << "Altura de arbol " << ArbolInt.AlturaArbol() << endl;
 
-    cin.get();
+    //cin.get();
     return 0;
 }
