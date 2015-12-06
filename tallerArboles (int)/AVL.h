@@ -26,11 +26,11 @@ public:
     AVL() : raiz(NULL), actual(NULL) {}
     ~AVL() { Podar(raiz); }
     // Insertar en �rbol ordenado:
-    void Insertar(const int dat);
+    void Insertar(const char dat);
     // Borrar un elemento del �rbol:
-    void Borrar(const int dat);
+    void Borrar(const char dat);
     // Funci�n de b�squeda:
-    bool Buscar(const int dat);
+    bool Buscar(const char dat);
     // Comprobar si el �rbol est� vac�o:
     bool Vacio(Nodo *r) { return r==NULL; }
     // Comprobar si es un nodo hoja:
@@ -39,15 +39,15 @@ public:
     const int NumeroNodos();
     const int AlturaArbol();
     // Calcular altura de un dato:
-    int Altura(const int dat);
+    int Altura(const char dat);
     // Devolver referencia al dato del nodo actual:
-    int &ValorActual() { return actual->dato; }
+    char &ValorActual() { return actual->dato; }
     // Moverse al nodo raiz:
     void Raiz() { actual = raiz; }
     // Aplicar una funci�n a cada elemento del �rbol:
-    void InOrden(void (*func)(int&, int) , Nodo *nodo=NULL, bool r=true);
-    void PreOrden(void (*func)(int&, int) , Nodo *nodo=NULL, bool r=true);
-    void PostOrden(void (*func)(int&, int) , Nodo *nodo=NULL, bool r=true);
+    void InOrden(void (*func)(const char&, int) , Nodo *nodo=NULL, bool r=true);
+    void PreOrden(void (*func)(const char&, int) , Nodo *nodo=NULL, bool r=true);
+    void PostOrden(void (*func)(const char&, int) , Nodo *nodo=NULL, bool r=true);
 private:
     // Funciones de equilibrado:
     void Equilibrar(Nodo *nodo, int, bool);
@@ -60,7 +60,6 @@ private:
     void auxContador(Nodo*);
     void auxAltura(Nodo*, int);
 
-    void Insertar(const char dat);
 };
 
 
@@ -77,7 +76,7 @@ void AVL::Podar(Nodo* &nodo)
 }
 
 // Insertar un dato en el �rbol AVL
-void AVL::Insertar(const int dat)
+void AVL::Insertar(const char dat)
 {
     Nodo *padre = NULL;
 
@@ -99,13 +98,13 @@ void AVL::Insertar(const int dat)
         // en la rama izquierda
     else if(dat < padre->dato) {
         padre->izquierdo = new Nodo(dat, padre);
-       // Equilibrar(padre, IZQUIERDO, true);
+        Equilibrar(padre, IZQUIERDO, true);
     }
         // Si el dato es mayor que el que contiene el nodo padre, lo insertamos
         // en la rama derecha
     else if(dat > padre->dato) {
         padre->derecho = new Nodo(dat, padre);
-       // Equilibrar(padre, DERECHO, true);
+       Equilibrar(padre, DERECHO, true);
     }
 }
 
@@ -272,7 +271,7 @@ void AVL::RSI(Nodo* nodo)
 }
 
 // Eliminar un elemento de un �rbol AVL
-void AVL::Borrar(const int dat)
+void AVL::Borrar(const char dat)
 {
     Nodo *padre = NULL;
     Nodo *nodo;
@@ -342,7 +341,7 @@ void AVL::Borrar(const int dat)
 // Recorrido de �rbol en inorden, aplicamos la funci�n func, que tiene
 // el prototipo:
 // void func(int&, int);
-void AVL::InOrden(void (*func)(int&, int) , Nodo *nodo, bool r)
+void AVL::InOrden(void (*func)(const char&, int) , Nodo *nodo, bool r)
 {
     if(r) nodo = raiz;
     if(nodo->izquierdo) InOrden(func, nodo->izquierdo, false);
@@ -353,7 +352,7 @@ void AVL::InOrden(void (*func)(int&, int) , Nodo *nodo, bool r)
 // Recorrido de �rbol en preorden, aplicamos la funci�n func, que tiene
 // el prototipo:
 // void func(int&, int);
-void AVL::PreOrden(void (*func)(int&, int), Nodo *nodo, bool r)
+void AVL::PreOrden(void (*func)(const char&, int), Nodo *nodo, bool r)
 {
     if(r) nodo = raiz;
     func(nodo->dato, nodo->FE);
@@ -364,7 +363,7 @@ void AVL::PreOrden(void (*func)(int&, int), Nodo *nodo, bool r)
 // Recorrido de �rbol en postorden, aplicamos la funci�n func, que tiene
 // el prototipo:
 // void func(int&, int);
-void AVL::PostOrden(void (*func)(int&, int), Nodo *nodo, bool r)
+void AVL::PostOrden(void (*func)(const char&, int), Nodo *nodo, bool r)
 {
     if(r) nodo = raiz;
     if(nodo->izquierdo) PostOrden(func, nodo->izquierdo, false);
@@ -373,7 +372,7 @@ void AVL::PostOrden(void (*func)(int&, int), Nodo *nodo, bool r)
 }
 
 // Buscar un valor en el �rbol
-bool AVL::Buscar(const int dat)
+bool AVL::Buscar(const char  dat)
 {
     actual = raiz;
 
@@ -387,7 +386,7 @@ bool AVL::Buscar(const int dat)
 }
 
 // Calcular la altura del nodo que contiene el dato dat
-int AVL::Altura(const int dat)
+int AVL::Altura(const char dat)
 {
     int altura = 0;
     actual = raiz;

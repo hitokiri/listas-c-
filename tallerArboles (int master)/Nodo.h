@@ -9,10 +9,10 @@
 class Nodo {
 public:
     // Constructor:
-    Nodo(const char dat, Nodo *pad=NULL, Nodo *izq=NULL, Nodo *der=NULL) :
+    Nodo(const int dat, Nodo *pad=NULL, Nodo *izq=NULL, Nodo *der=NULL) :
             dato(dat), padre(pad), izquierdo(izq), derecho(der), FE(0) {}
     // Miembros:
-    char dato;
+    int dato;
     int FE;
     Nodo *izquierdo;
     Nodo *derecho;

@@ -10,7 +10,7 @@ using namespace std;
 
 
 // Funci�n de prueba para recorridos del �rbol
-void Mostrar(int &d, int FE)
+void Mostrar(const char  &d, int FE)
 {
     cout << d << "(" << FE << "),";
 }
@@ -28,12 +28,12 @@ int main()
    ArbolInt.Insertar(25);
    ArbolInt.Insertar(6);
    ArbolInt.Insertar(8);*/
-    ArbolInt.Insertar(5);
-    ArbolInt.Insertar(4);
-    ArbolInt.Insertar(20);
-    ArbolInt.Insertar(2);
-    ArbolInt.Insertar(10);
-    ArbolInt.Insertar(1);
+    ArbolInt.Insertar('a');
+    ArbolInt.Insertar('z');
+    ArbolInt.Insertar('f');
+    ArbolInt.Insertar('c');
+    ArbolInt.Insertar('x');
+    ArbolInt.Insertar('d');
 //    ArbolInt.Insertar(70);
 //    ArbolInt.Insertar(18);
 //    ArbolInt.Insertar(9);
@@ -46,7 +46,7 @@ int main()
 //    ArbolInt.Insertar(16);
 
     cout << "Altura de arbol " << ArbolInt.AlturaArbol() << endl;
-    cout<<"Altura nodo:  "<< ArbolInt.Altura(15)<<endl;
+    cout<<"Altura nodo:  "<< ArbolInt.Altura('x')<<endl;
 
     // Mostrar el �rbol en tres ordenes distintos:
     cout << "InOrden: ";
